@@ -4,7 +4,7 @@ DjangoでのHighcharts.jsを使用した実装例
 # 実行方法
 リポジトリのクローン
 ```bash
-https://github.com/mila411/django-highcharts.git
+https://github.com/mila411/django-ajax.git
 ```
 パッケージのインストール
 ```bash
