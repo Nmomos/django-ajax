@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block javascript %}
+<script>
+    $("#id_username").change(function () {
+        var form = $(this).closest("form");
+        $.ajax({
+            url: '/ajax/validate_username/',
+            data: form.serialize(),
+            dataType: 'json',
+            success: function (data) {
+                if (data.is_used) {
+                    alert(data.error_message);
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>AJAXでの入力値確認</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">登録</button>
+</form>
+{% endblock %}
